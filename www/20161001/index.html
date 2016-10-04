@@ -14,63 +14,6 @@
     <div id="body-content" class="body-content hide">
         <div class="swiper-container">
             <div class="swiper-wrapper">
-                <div class="swiper-slide p3">
-                    <div class="img">
-                        <img class="img-width" src="img/3.png">
-                    </div>
-                    <div class="result txt-c">
-                        <h1>投票成功！</h1>
-                        <h2>#就秒你#</h2>
-                    </div>
-                </div>
-                <div class="swiper-slide p2">
-                    <form>
-                        <div class="title">个人资料</div>
-                        <div class="ub input-box">
-                            <div class="ub-f1">
-                                <input class="input" type="text" placeholder="姓名">
-                            </div>
-                            <div class="ub-f1">
-                                <input class="input" type="text" placeholder="性别" readonly>
-                            </div>
-                        </div>
-                        <div class="input-box">
-                            <input class="input" type="tel" placeholder="手机">
-                        </div>
-                        <div class="sub-title big">
-                            现住城市
-                        </div>
-                        <div class="ub input-box">
-                            <div class="ub-f1">
-                                <input class="input" type="text" value="请选择省份" readonly>
-                            </div>
-                            <div class="ub-f1">
-                                <input class="input" type="text" value="请选择城市" readonly>
-                            </div>
-                        </div>
-                        <div class="sub-title">球场名</div>
-                        <div class="check-box">
-                            <div class="ub">
-                                <div class="ub-f1">
-                                    <label for="1">
-                                        <input type="checkbox" id="1"> 二沙岛海印足球场
-                                    </label>
-                                </div>
-                                <div class="ub-f1">
-                                    <label for="1">
-                                        <input type="checkbox" id="1"> 二沙岛海印足球场
-                                    </label>
-                                </div>
-                                <div class="ub-f1">
-                                    <label for="1">
-                                        <input type="checkbox" id="1"> 二沙岛海印足球场
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                    <a class="btn" id="vote-btn">我要投票</a>
-                </div>
                 <div class="swiper-slide p1">
                     <div class="img">
                         <img class="img-width" src="img/1.png">
@@ -91,8 +34,87 @@
                     </div>
                     <a class="btn" id="go-btn">我要投票</a>
                 </div>
+                <div class="swiper-slide p2">
+                    <form id="form">
+                        <div class="title">个人资料</div>
+                        <div class="ub input-box">
+                            <div class="ub-f1">
+                                <input class="input" type="text" name="name" placeholder="姓名">
+                            </div>
+                            <div class="ub-f1">
+                                <select class="select" id="sexSelect" name="sex">
+                                    <option value="-1">性别</option>
+                                    <option value="1">男</option>
+                                    <option value="0">女</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="input-box">
+                            <input class="input" type="tel" name="tel" placeholder="手机" style="width: 98%">
+                        </div>
+                        <div class="ub input-box">
+                            <div class="ub-f1">
+                                <input class="input" type="number" name="age" placeholder="年龄">
+                            </div>
+                            <div class="ub-f1">
+                                <input class="input" type="text" name="job" placeholder="职业">
+                            </div>
+                        </div>
+                        <!--
+                        <div class="sub-title big">
+                            现住城市
+                        </div>
+                        <div class="ub input-box">
+                            <div class="ub-f1">
+                                <input class="input" type="text" value="请选择省份" readonly>
+                            </div>
+                            <div class="ub-f1">
+                                <input class="input" type="text" value="请选择城市" readonly>
+                            </div>
+                        </div>
+                        -->
+                        <div class="sub-title">球场名</div>
+                        <div class="check-box">
+                            <label class="label" for="1">
+                                <input class="checkbox" type="checkbox" name="options" id="1" value="二沙岛海印足球场"> 二沙岛海印足球场
+                            </label>
+                            <label class="label" for="2">
+                                <input class="checkbox" type="checkbox" name="options" id="2" value="新安足球场"> 新安足球场
+                            </label>
+                            <label class="label" for="3">
+                                <input class="checkbox" type="checkbox" name="options" id="3" value="拾号足球公园"> 拾号足球公园
+                            </label>
+                            <label class="label" for="4">
+                                <input class="checkbox" type="checkbox" name="options" id="4" value="金戈顿足球公园"> 金戈顿足球公园
+                            </label>
+                            <label class="label" for="5">
+                                <input class="checkbox" type="checkbox" name="options" id="5" value="西村足球场"> 西村足球场
+                            </label>
+                            <label class="label" for="6">
+                                <input class="checkbox" type="checkbox" name="options" id="6" value="华南理工大学足球场"> 华南理工大学足球场（大学城）
+                            </label>
+                            <label class="label" for="7">
+                                <input class="checkbox" type="checkbox" name="options" id="7" value="华南师范大学足球场"> 华南师范大学足球场（大学城）
+                            </label>
+                        </div>
+                    </form>
+                    <a class="btn" id="vote-btn">提交投票</a>
+                </div>
+                <div class="swiper-slide p3">
+                    <div class="img">
+                        <img class="img-width" src="img/3.png">
+                    </div>
+                    <div class="result txt-c">
+                        <h1>投票成功！</h1>
+                        <h2>#就秒你#</h2>
+                    </div>
+                </div>
             </div>
         </div>
+    </div>
+    <div class="load-cover" id="load-cover" style="display: none">
+        <div class="loading"></div>
+        <div class="txt">提交投票...</div>
     </div>
     <!-- 预加载资源动画 -->
     <div class="loader ub ub-ver ub-ac ub-pc">

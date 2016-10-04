@@ -9,7 +9,14 @@
   "author": "qiubh",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.15.2",
+    "excel-export": "^0.5.1",
     "express": "^4.14.0",
+    "extend": "^3.0.0",
+    "guid": "0.0.12",
+    "mysql": "^2.11.1",
+    "node-xlsx": "^0.7.2",
+    "path": "^0.12.7",
     "wechat-api": "^1.28.1"
   }
 }

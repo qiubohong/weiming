@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <title>阿迪达斯-下载</title>
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/4.0.0-alpha.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/lib/bootstrap-datetimepicker/bootstrap-datetimepicker.min.css">
+</head>
+
+<body>
+    <header class="site-header jumbotron">
+        <div class="container">
+            <h1>活动用户报名资料下载</h1>
+            <p>输入开始时间和结束时间，点击下方 <a class="btn btn-primary" style="color: #fff">下载</a> 即可</p>
+            <p>如：查询10月1日至10月2日，需要选择10月1日~10月3日</p>
+        </div>
+    </header>
+    <div class="container">
+        <div class="rows">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="sr-only" for="startTime">开始时间</label>
+                    <input class="form-control form_datetime" type="text" id="startTime" placeholder="开始时间">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="sr-only" for="endTime">结束时间</label>
+                    <input class="form-control form_datetime" type="text" id="endTime" placeholder="结束时间">
+                </div>
+            </div>
+        </div>
+        <div class="rows">
+            <div class="col-md-6">
+                <button class="btn btn-primary btn-lg btn-block" type="button" onclick="downReport()">下载</a>
+            </div>
+        </div>
+    </div>
+    <script src="http://actcdn.eebbk.com/public-lib/jquery/1.10.1/c_jquery.min_2bc3a40.js"></script>
+    <script src="//cdn.bootcss.com/bootstrap/4.0.0-alpha.3/js/bootstrap.min.js"></script>
+    <script src="//cdn.bootcss.com/moment.js/2.15.1/moment.min.js"></script>
+    <script src="/lib/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js"></script>
+    <script src="/lib/bootstrap-datetimepicker/bootstrap-datetimepicker.zh-CN.js"></script>
+    <script>
+    $(document).ready(function() {
+        $(".form_datetime").datetimepicker({
+            format: "yyyy-mm-dd",
+            autoclose: true,
+            todayBtn: true,
+            language: 'zh-CN',
+            pickerPosition: "bottom-left",
+            minView: "month",
+            maxView: "2"
+        });
+        $("#startTime").on("changeDate",function(ev){
+        	var startDate = new Date($("#startTime").val());
+        	startDate.setDate(startDate.getDate()+1);
+        	$('#endTime').datetimepicker('setStartDate', startDate);
+        });
+        $("#endTime").on("changeDate",function(ev){
+        	var endDate = new Date($("#endTime").val());
+        	endDate.setDate(endDate.getDate()-1);
+        	$('#startTime').datetimepicker('setEndDate', endDate);
+        });
+    });
+
+    function downReport(){
+    	var startTime = $("#startTime").val();
+    	var endTime = $("#endTime").val();
+    	if(startTime === ""){
+    		alert("还没选择开始时间");
+    		return;
+    	}
+    	if(endTime === ""){
+    		alert("还没选择结束时间");
+    		return;
+    	}
+
+        window.location.href = "/report/downReport?startTime="+startTime+"&endTime="+endTime;
+    }
+    </script>
+</body>
+
+</html>
